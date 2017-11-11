@@ -1,0 +1,4 @@
+*.DS_Store
+node_modules/
+public/*.min.js
+public/index.css
