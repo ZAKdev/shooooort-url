@@ -6,20 +6,29 @@ export default class ShortenForm extends Component {
     super(props)
   }
 
+  static propTypes = {
+    submitShorten: PropTypes.func.isRequired,
+  }
+
   typingLink({ urlField, submit }) {
     if(urlField.value.length > 0) {
       submit.classList.add("typing")
-      submit.removeAttribute("disabled")
+      submit.removeAttribute("disabled", "disabled")
     } else {
       submit.classList.remove("typing")
-      submit.addAttribute("disabled")
+      submit.setAttribute("disabled", "disabled")
     }
+  }
+
+  submitUrl(e, { refs, props }) {
+    e.preventDefault();
+    return props.submitShorten(refs.urlField.value)
   }
 
   render() {
     return (
       <section className="ShortenForm">
-        <form>
+        <form onSubmit={e => this.submitUrl(e, this)}>
           <input
             type="text"
             className="ShortenForm-field"
