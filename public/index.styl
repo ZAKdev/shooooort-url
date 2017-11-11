@@ -1,12 +1,15 @@
-@import './AppContainer/components/header';
-
 // Font
 $primaryNormal = 'AvenirNext-Regular'
 $primaryBold = 'AvenirNext-DemiBold'
 
 // Colors
 $bgColor = #fcfbfa
-$primary = #eb4a42
+$baseColor = #555555
+$primaryColor = #eb4a42
+$secondaryColor = #eaeaea
+
+@import './AppContainer/components/header';
+@import './HomeContainer/components/shortenForm';
 
 body
   padding 0
@@ -20,13 +23,18 @@ ul, ol, h1, h2, h3, h4, h5, form, figure, p, input
   padding 0
 button:focus
   outline none
+input:focus
+  outline none
 
 h1
   font-size 47px
-  color $primary
+  color $primaryColor
   font-family $primaryBold
   font-weight normal
 
 .AppContainer
   width 640px
   margin 0 auto
+
+.HomeContainer
+  margin-top 50px
