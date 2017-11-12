@@ -20,6 +20,7 @@ class HomeContainer extends Component {
         />
         <ShortenListing
           shortens={this.props.home.shortens}
+          onClickUrlActions={this.props.actions.onClickUrl}
         />
       </div>
     )

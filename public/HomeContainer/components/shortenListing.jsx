@@ -5,7 +5,7 @@ const ShortenListing = props => (
   <section className="ShortenListing">
     <header>
       <h2>Previously shortened by you</h2>
-      <span>Clear history</span>
+      <span className="ShortenListing-clear">Clear history</span>
     </header>
     <table>
       <thead>
@@ -19,12 +19,14 @@ const ShortenListing = props => (
         {
           props.shortens.map(short => (
             <tr>
-              <td>
-                <span className="ShortenListing-shortLink">{short.shortcode}</span>
+              <td onClick={e => props.onClickUrlActions(short)}>
+                <span className="ShortenListing-shortLink">shooooort.com/
+                  <span>{short.shortcode}</span>
+                </span>
                 <span className="ShortenListing-fullLink">{short.url}</span>
               </td>
-              <td>1140</td>
-              <td>2 days ago</td>
+              <td>{short.visits}</td>
+              <td>{short.lastVisited}</td>
             </tr>
           ))
         }
