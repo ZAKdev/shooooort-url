@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class ShortenForm extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   static propTypes = {
     submitShorten: PropTypes.func.isRequired,
   }
@@ -34,7 +30,7 @@ export default class ShortenForm extends Component {
             className="ShortenForm-field"
             placeholder="Paste the link you want to shorten here"
             ref="urlField"
-            onChange={e => this.typingLink(this.refs)}
+            onChange={() => this.typingLink(this.refs)}
           />
           <button
             type="submit"

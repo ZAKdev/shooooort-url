@@ -14,9 +14,29 @@
   a
     color $baseColor
     text-decoration none
-  &-shortLink
-    display block
-    span
+  &-error
+    background lighten($primaryColor, 40%)
+    padding 10px
+    color #fff
+    border-radius 4px
+    margin-bottom 20px
+    text-align center
+  .ShortenGroup
+    cursor pointer
+    &:hover
+      .ShortenGroup-copyLink
+        display block
+    &-row
+      display flex
+      justify-content space-between
+    &-shortLink
+      display block
+      span
+        color $primaryColor
+    &-fullLink
+      color darken($secondaryColor, 20%)
+    &-copyLink
       color $primaryColor
-  &-fullLink
-    color darken($secondaryColor, 20%)
+      display none
+      flex-grow 1
+      text-align center

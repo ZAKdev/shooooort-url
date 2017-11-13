@@ -8,8 +8,17 @@ import ShortenForm from './components/shortenForm';
 import ShortenListing from './components/shortenListing';
 
 class HomeContainer extends Component {
-  constructor(props) {
-    super(props)
+
+  static propTypes = {
+    actions: PropTypes.shape({
+      submitShorten: PropTypes.func.isRequired,
+      onClickUrl: PropTypes.func.isRequired,
+      onClickClearHistory: PropTypes.func.isRequired,
+    }),
+    home: PropTypes.shape({
+      shortens: PropTypes.array.isRequired,
+      error: PropTypes.bool.isRequired,
+    })
   }
 
   render() {
@@ -18,12 +27,21 @@ class HomeContainer extends Component {
         <ShortenForm
           submitShorten={this.props.actions.submitShorten}
         />
-        <ShortenListing
-          shortens={this.props.home.shortens}
-          onClickUrlActions={this.props.actions.onClickUrl}
-        />
+        {
+          this.props.home.shortens.length > 0 &&
+            <ShortenListing
+              shortens={this.props.home.shortens}
+              onClickUrlActions={this.props.actions.onClickUrl}
+              onClickClearHistory={this.props.actions.onClickClearHistory}
+              error={this.props.home.error}
+            />
+        }        
       </div>
     )
+  }
+
+  componentDidMount() {
+    return this.props.actions.getDataFromLocalStorage()
   }
 }
 
