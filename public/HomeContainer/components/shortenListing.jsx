@@ -26,7 +26,7 @@ const ShortenListing = props => (
         {
           props.shortens.map(short => (
             <tr key={short.shortcode}>
-              <td onClick={() => props.onClickUrlActions(short)} className="ShortenGroup" width="40%">
+              <td onClick={() => props.onClickUrlActions(short)} className="ShortenGroup" width="60%">
                 <a href={`https://impraise-shorty.herokuapp.com/${short.shortcode}`} target="_blank">
                   <div className="ShortenGroup-row">
                     <span className="ShortenGroup-shortLink">shooooort.com/
@@ -38,7 +38,7 @@ const ShortenListing = props => (
                 </a>
               </td>
               <td width="20%" className="text-center">{short.visits}</td>
-              <td width="40%" className="text-center">
+              <td width="20%" className="text-center">
                 {
                   short.lastVisited !== "none" ?
                     moment(short.lastVisited).fromNow()
